@@ -1,12 +1,14 @@
-import express from "express";
-import mongoose from "mongoose";
+import express from 'express';
+import mongoose from 'mongoose';
+import taskRoutes from './routes/taskRoutes.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(taskRoutes);
 
-mongoose.connect('mongodb://localhost:27017//taskmanager',{
+mongoose.connect('mongodb://localhost:27017/taskmanager', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
